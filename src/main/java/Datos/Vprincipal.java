@@ -45,7 +45,6 @@ public class Vprincipal extends JFrame {
                 if (autenticarUsuario(usuario, contrasena)) {
                     dispose();
                     InscripcionesDAO inscripcionesDAO = new InscripcionesDAO();
-
                     VentanaOpciones.mostrarVentana(usuario, inscripcionesDAO);
                 } else {
                     JOptionPane.showMessageDialog(Vprincipal.this, "Usuario o contraseña incorrectos");
@@ -58,12 +57,10 @@ public class Vprincipal extends JFrame {
         return usuario.equals(USUARIO_CORRECTO) && contrasena.equals(CONTRASENA_CORRECTA);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Vprincipal().setVisible(true);
-            }
-        });
-    }
+        public static void main(String[] args) {
+            HibernateUtil.getSessionFactory();
+            Vprincipal vprincipal = new Vprincipal();
+            vprincipal.setVisible(true);
+        }
+
 }

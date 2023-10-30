@@ -18,20 +18,17 @@ public class CursosClass {
     @Column(name = "profesor")
     private String profesor;
 
-    @OneToMany(mappedBy = "listCurso", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cursosByIdCurso", cascade = CascadeType.ALL)
     private Collection<InscripcionesClass> inscripciones;
 
-    // Constructor vacío necesario para Hibernate
     public CursosClass() {
     }
 
-    // Constructor con parámetros
     public CursosClass(String nombreCurso, String profesor) {
         this.nombreCurso = nombreCurso;
         this.profesor = profesor;
     }
 
-    // Getter y Setter para idCurso
     public int getIdCurso() {
         return idCurso;
     }
@@ -40,7 +37,6 @@ public class CursosClass {
         this.idCurso = idCurso;
     }
 
-    // Getter y Setter para nombreCurso
     public String getNombreCurso() {
         return nombreCurso;
     }
@@ -49,7 +45,6 @@ public class CursosClass {
         this.nombreCurso = nombreCurso;
     }
 
-    // Getter y Setter para profesor
     public String getProfesor() {
         return profesor;
     }
@@ -58,7 +53,6 @@ public class CursosClass {
         this.profesor = profesor;
     }
 
-    // Getter y Setter para inscripciones
     public Collection<InscripcionesClass> getInscripciones() {
         return inscripciones;
     }
@@ -67,15 +61,11 @@ public class CursosClass {
         this.inscripciones = inscripciones;
     }
 
-    // Método para agregar inscripción y mantener la relación bidireccional
     public void addInscripcion(InscripcionesClass inscripcion) {
-        inscripcion.setCurso(this);
+        inscripcion.setCursosByIdCurso(this);
         this.inscripciones.add(inscripcion);
     }
 
-
-
-    // Equals y HashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

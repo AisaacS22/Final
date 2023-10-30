@@ -9,57 +9,58 @@ public class InscripcionesClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Inscripcion")
+    @Column(name = "id_inscripcion")
     private int idInscripcion;
 
     @ManyToOne
-    @JoinColumn(name = "id_Estudiante")
-    private EstudiantesClass estudiantesByIdEstudiante;
+    @JoinColumn(name = "id_curso", referencedColumnName = "id_curso")
+    private CursosClass cursosByIdCurso;
 
     @ManyToOne
-    @JoinColumn(name = "id_Curso")
-    private CursosClass listCurso;
+    @JoinColumn(name = "id_estudiante", referencedColumnName = "id_estudiante")
+    private EstudiantesClass estudiantesByIdEstudiante;
 
-    @Column(name = "fecha_Inscripcion")
+    @Column(name = "fecha_inscripcion")
     private Date fechaInscripcion;
 
     public InscripcionesClass() {
-        // Constructor por defecto necesario para Hibernate
     }
 
-    public InscripcionesClass(EstudiantesClass estudiante, CursosClass curso, Date fechaInscripcion) {
-        this.estudiantesByIdEstudiante = estudiante;
-        this.listCurso = curso;
+    public InscripcionesClass(EstudiantesClass estudiantesByIdEstudiante, CursosClass cursosByIdCurso, java.util.Date fechaInscripcion) {
+        this.estudiantesByIdEstudiante = estudiantesByIdEstudiante;
+        this.cursosByIdCurso = cursosByIdCurso;
+        this.fechaInscripcion = new Date(fechaInscripcion.getTime());
+    }
+
+    public int getIdInscripcion() {
+        return idInscripcion;
+    }
+
+    public void setIdInscripcion(int idInscripcion) {
+        this.idInscripcion = idInscripcion;
+    }
+
+    public CursosClass getCursosByIdCurso() {
+        return cursosByIdCurso;
+    }
+
+    public void setCursosByIdCurso(CursosClass cursosByIdCurso) {
+        this.cursosByIdCurso = cursosByIdCurso;
+    }
+
+    public EstudiantesClass getEstudiantesByIdEstudiante() {
+        return estudiantesByIdEstudiante;
+    }
+
+    public void setEstudiantesByIdEstudiante(EstudiantesClass estudiantesByIdEstudiante) {
+        this.estudiantesByIdEstudiante = estudiantesByIdEstudiante;
+    }
+
+    public Date getFechaInscripcion() {
+        return fechaInscripcion;
+    }
+
+    public void setFechaInscripcion(Date fechaInscripcion) {
         this.fechaInscripcion = fechaInscripcion;
-    }
-
-    public InscripcionesClass(String usuario, String cursoSeleccionado) {
-    }
-
-    // Otros métodos, getters y setters
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        InscripcionesClass that = (InscripcionesClass) o;
-
-        if (idInscripcion != that.idInscripcion) return false;
-        if (estudiantesByIdEstudiante != null ? !estudiantesByIdEstudiante.equals(that.estudiantesByIdEstudiante) : that.estudiantesByIdEstudiante != null) return false;
-        if (listCurso != null ? !listCurso.equals(that.listCurso) : that.listCurso != null) return false;
-        if (fechaInscripcion != null ? !fechaInscripcion.equals(that.fechaInscripcion) : that.fechaInscripcion != null)
-            return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = idInscripcion;
-        result = 31 * result + (estudiantesByIdEstudiante != null ? estudiantesByIdEstudiante.hashCode() : 0);
-        result = 31 * result + (listCurso != null ? listCurso.hashCode() : 0);
-        result = 31 * result + (fechaInscripcion != null ? fechaInscripcion.hashCode() : 0);
-        return result;
     }
 }

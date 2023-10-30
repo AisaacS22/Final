@@ -6,6 +6,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "estudiantes") // Nombre de la tabla en la base de datos
 public class EstudiantesClass {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Estudiante") // Nombre de la columna en la base de datos
@@ -23,10 +24,18 @@ public class EstudiantesClass {
     @OneToMany(mappedBy = "estudiantesByIdEstudiante", cascade = CascadeType.ALL)
     private Collection<InscripcionesClass> inscripcionesEstudiante;
 
-    // Constructor y otros métodos si es necesario
+    // Constructor predeterminado necesario para Hibernate
+    public EstudiantesClass() {
+    }
+
+    // Constructor con parámetros si es necesario
+    public EstudiantesClass(String nombre, String apellido, String email) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+    }
 
     // Getters y Setters
-
     public int getIdEstudiante() {
         return idEstudiante;
     }
@@ -65,5 +74,15 @@ public class EstudiantesClass {
 
     public void setInscripcionesEstudiante(Collection<InscripcionesClass> inscripcionesEstudiante) {
         this.inscripcionesEstudiante = inscripcionesEstudiante;
+    }
+
+    // Método para mantener la relación bidireccional
+    public void addInscripcion(InscripcionesClass inscripcion) {
+        inscripcion.setEstudiantesByIdEstudiante(this);
+        this.inscripcionesEstudiante.add(inscripcion);
+    }
+    public String getNombreCompleto() {
+        // Suponiendo que tienes atributos 'nombre' y 'apellido'
+        return nombre + " " + apellido;
     }
 }

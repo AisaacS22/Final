@@ -25,12 +25,12 @@ public class CursosDAO {
         }
     }
 
-    public void saveOrUpdate(String curso) {
+    public void saveOrUpdateCurso(String nombreCurso) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             // Crear una instancia de CursosClass y establecer el nombre del curso
             CursosClass cursoClass = new CursosClass();
-            cursoClass.setNombreCurso(curso);
+            cursoClass.setNombreCurso(nombreCurso);
             session.saveOrUpdate(cursoClass);
             session.getTransaction().commit();
         }
@@ -43,6 +43,22 @@ public class CursosDAO {
             if (curso != null) {
                 session.delete(curso);
             }
+            session.getTransaction().commit();
+        }
+    }
+    public CursosClass getByNombre(String nombreCurso) {
+        try (Session session = sessionFactory.openSession()) {
+            String hql = "FROM CursosClass c WHERE c.nombreCurso = :nombreCurso";
+            return session.createQuery(hql, CursosClass.class)
+                    .setParameter("nombreCurso", nombreCurso)
+                    .uniqueResult();
+        }
+    }
+
+    public void saveOrUpdateCurso(CursosClass curso) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.saveOrUpdate(curso);
             session.getTransaction().commit();
         }
     }

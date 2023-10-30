@@ -1,6 +1,9 @@
 package Datos;
 
+import dao.CursosDAO;
 import dao.InscripcionesDAO;
+import isa.ejercicio.CursosClass;
+import isa.ejercicio.EstudiantesClass;
 import isa.ejercicio.InscripcionesClass;
 
 import javax.swing.*;
@@ -12,56 +15,84 @@ import java.util.List;
 
 public class VentanaConsultar extends JFrame {
 
-    private final InscripcionesDAO inscripcionesDAO; // Nuevo campo DAO
+    private final InscripcionesDAO inscripcionesDAO;
+    private final CursosDAO cursosDAO;
 
-    public VentanaConsultar(InscripcionesDAO inscripcionesDAO) {
+    public VentanaConsultar(InscripcionesDAO inscripcionesDAO, CursosDAO cursosDAO) {
         this.inscripcionesDAO = inscripcionesDAO;
+        this.cursosDAO = cursosDAO;
 
         setTitle("Consultar Datos");
         setSize(400, 200);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cierra solo la ventana actual
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
 
         // Crear panel de consulta
         JPanel consultarPanel = new JPanel();
-        consultarPanel.setLayout(new GridLayout(3, 2, 10, 10));
+        consultarPanel.setLayout(new GridLayout(2, 2, 10, 10));
         consultarPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         // Componentes para la consulta
-        JLabel lblCampo = new JLabel("Campo:");
-        JTextField txtCampo = new JTextField();
+        JButton btnConsultarCursos = new JButton("Consultar Cursos");
+        JButton btnConsultarEstudiantes = new JButton("Consultar Estudiantes");
 
-        JLabel lblValor = new JLabel("Valor:");
-        JTextField txtValor = new JTextField();
-
-        JButton btnConsultar = new JButton("Consultar");
-
-        // Añadir ActionListener para el botón de consulta
-        btnConsultar.addActionListener(new ActionListener() {
+        // Añadir ActionListener para el botón de consulta de cursos
+        btnConsultarCursos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Obtener el campo y el valor ingresado para la consulta
-                String campo = txtCampo.getText();
-                String valor = txtValor.getText();
-
-                // Implementar la lógica de consulta utilizando el DAO
-                List<InscripcionesClass> resultados = inscripcionesDAO.consultarPorCampoYValor(campo, valor);
+                // Obtener la lista de cursos utilizando el DAO
+                List<CursosClass> cursos = cursosDAO.getAllCursos();
 
                 // Mostrar los resultados en una ventana o área de texto
+                mostrarCursos(cursos);
+            }
+        });
 
+        // Añadir ActionListener para el botón de consulta de estudiantes
+        btnConsultarEstudiantes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Obtener la lista de estudiantes utilizando el DAO
+                List<InscripcionesClass> inscripciones = inscripcionesDAO.getAllInscripciones();
+
+                // Mostrar los resultados en una ventana o área de texto
+                mostrarEstudiantesInscritos(inscripciones);
             }
         });
 
         // Añadir componentes al panel de consulta
-        consultarPanel.add(lblCampo);
-        consultarPanel.add(txtCampo);
-        consultarPanel.add(lblValor);
-        consultarPanel.add(txtValor);
-        consultarPanel.add(new JLabel()); // Espacio en blanco
-        consultarPanel.add(btnConsultar);
+        consultarPanel.add(btnConsultarCursos);
+        consultarPanel.add(btnConsultarEstudiantes);
 
         add(consultarPanel);
+    }
+
+    // Método para mostrar los cursos consultados
+    private void mostrarCursos(List<CursosClass> cursos) {
+        StringBuilder mensaje = new StringBuilder("Cursos disponibles:\n");
+        for (CursosClass curso : cursos) {
+            mensaje.append("ID: ").append(curso.getIdCurso())
+                    .append(", Nombre: ").append(curso.getNombreCurso()).append("\n");
+        }
+        JOptionPane.showMessageDialog(this, mensaje.toString());
+    }
+
+    // Método para mostrar los estudiantes consultados
+    private void mostrarEstudiantesInscritos(List<InscripcionesClass> inscripciones) {
+        StringBuilder mensaje = new StringBuilder("Estudiantes inscritos:\n");
+        for (InscripcionesClass inscripcion : inscripciones) {
+            EstudiantesClass estudiante = inscripcion.getEstudiantesByIdEstudiante();
+            if (estudiante != null) {
+                mensaje.append("Estudiante: ").append(estudiante.getNombreCompleto())
+                        .append(", Curso: ").append(inscripcion.getCursosByIdCurso().getNombreCurso())
+                        .append(", Fecha Inscripción: ").append(inscripcion.getFechaInscripcion()).append("\n");
+            } else {
+                mensaje.append("Estudiante desconocido, Curso: ").append(inscripcion.getCursosByIdCurso().getNombreCurso())
+                        .append(", Fecha Inscripción: ").append(inscripcion.getFechaInscripcion()).append("\n");
+            }
+        }
+        JOptionPane.showMessageDialog(this, mensaje.toString());
     }
 
 

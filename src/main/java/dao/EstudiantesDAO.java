@@ -1,5 +1,6 @@
 package dao;
 
+import Datos.HibernateUtil;
 import isa.ejercicio.EstudiantesClass;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,7 +15,9 @@ public class EstudiantesDAO {
     public EstudiantesDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-
+    public EstudiantesDAO() {
+        this.sessionFactory = HibernateUtil.getSessionFactory();
+    }
     public EstudiantesDAO(SessionFactory sessionFactory, EstudiantesDAO estudiantesDAO) {
         this.sessionFactory = sessionFactory;
         this.estudiantesDAO = estudiantesDAO;
@@ -35,7 +38,15 @@ public class EstudiantesDAO {
             session.getTransaction().commit();
         }
     }
-
+    public EstudiantesClass getByNombreApellido(String nombre, String apellido) {
+        try (Session session = sessionFactory.openSession()) {
+            String hql = "FROM EstudiantesClass e WHERE e.nombre = :nombre AND e.apellido = :apellido";
+            return session.createQuery(hql, EstudiantesClass.class)
+                    .setParameter("nombre", nombre)
+                    .setParameter("apellido", apellido)
+                    .uniqueResult();
+        }
+    }
     public void saveOrUpdate(EstudiantesClass estudiantesByIdEstudiante) {
     }
 }

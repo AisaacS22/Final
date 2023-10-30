@@ -55,11 +55,12 @@ public class VentanaOpciones extends JFrame {
         btnConsultas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Abrir la ventana de consultas con el DAO de inscripciones
-                VentanaConsultar consultaFrame = new VentanaConsultar(inscripcionesDAO);
+                // Abrir la ventana de consultas con los DAOs de inscripciones y cursos
+                VentanaConsultar consultaFrame = new VentanaConsultar(inscripcionesDAO, cursosDAO);
                 consultaFrame.setVisible(true);
             }
         });
+
 
         // Añadir ActionListener para el botón de Cursos
         btnCursos.addActionListener(new ActionListener() {

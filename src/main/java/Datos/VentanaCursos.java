@@ -30,29 +30,14 @@ public class VentanaCursos extends JFrame {
         btnAgregarCurso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Lógica para agregar un curso
-                String nombreCurso = JOptionPane.showInputDialog(VentanaCursos.this, "Ingrese el nombre del curso:");
-                if (nombreCurso != null && !nombreCurso.isEmpty()) {
-                    cursosDAO.saveOrUpdate(nombreCurso);
-                    JOptionPane.showMessageDialog(VentanaCursos.this, "Curso '" + nombreCurso + "' agregado exitosamente.");
-                } else {
-                    JOptionPane.showMessageDialog(VentanaCursos.this, "Nombre de curso inválido.");
-                }
+                agregarCurso();
             }
         });
 
         btnEliminarCurso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Lógica para eliminar un curso
-                String idCursoEliminar = JOptionPane.showInputDialog(VentanaCursos.this, "Ingrese el ID del curso a eliminar:");
-                try {
-                    int id = Integer.parseInt(idCursoEliminar);
-                    cursosDAO.delete(id);
-                    JOptionPane.showMessageDialog(VentanaCursos.this, "Curso con ID " + id + " eliminado exitosamente.");
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(VentanaCursos.this, "ID de curso inválido. Ingrese un número.");
-                }
+                eliminarCurso();
             }
         });
 
@@ -60,6 +45,29 @@ public class VentanaCursos extends JFrame {
         opcionesPanel.add(btnEliminarCurso);
 
         add(opcionesPanel);
+    }
+
+    private void agregarCurso() {
+        // Lógica para agregar un curso
+        String nombreCurso = JOptionPane.showInputDialog(VentanaCursos.this, "Ingrese el nombre del curso:");
+        if (nombreCurso != null && !nombreCurso.isEmpty()) {
+            cursosDAO.saveOrUpdateCurso(nombreCurso);
+            JOptionPane.showMessageDialog(VentanaCursos.this, "Curso '" + nombreCurso + "' agregado exitosamente.");
+        } else {
+            JOptionPane.showMessageDialog(VentanaCursos.this, "Nombre de curso inválido.");
+        }
+    }
+
+    private void eliminarCurso() {
+        // Lógica para eliminar un curso
+        String idCursoEliminar = JOptionPane.showInputDialog(VentanaCursos.this, "Ingrese el ID del curso a eliminar:");
+        try {
+            int id = Integer.parseInt(idCursoEliminar);
+            cursosDAO.delete(id);
+            JOptionPane.showMessageDialog(VentanaCursos.this, "Curso con ID " + id + " eliminado exitosamente.");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(VentanaCursos.this, "ID de curso inválido. Ingrese un número.");
+        }
     }
 
     public static void mostrarVentana(CursosDAO cursosDAO) {

@@ -25,4 +25,5 @@
         <mapping class="isa.ejercicio.EstudiantesClass"/>
         <mapping class="isa.ejercicio.InscripcionesClass"/>
     </session-factory>
+
 </hibernate-configuration>

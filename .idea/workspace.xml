@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8d5df349-3fe6-4957-88ac-0c9728c5f855" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Datos/HibernateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Datos/VentanaConsultar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Datos/VentanaCursos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Datos/VentanaInscribirse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Datos/VentanaOpciones.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Datos/Vprincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Imagen/Usuario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Imagen/imagen l.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Imagen/imagen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/CursosDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/EstudiantesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/InscripcionesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/isa/ejercicio/CursosClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/isa/ejercicio/EstudiantesClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/isa/ejercicio/InscripcionesClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CursosClass.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/EstudiantesClass.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/InscripcionesClass.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/isa/ejercicio/AppTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2XEhVDN27zKm8T7JjdphWx2mA3y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;27bc392f-740c-431b-8d36-5534a75d4ec5&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/50242/IdeaProjects/Registro/src/main/java/isa/ejercicio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/50242/IdeaProjects/Registro/src/main/java/Imagen&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Datos" />
+      <recent name="dao" />
+      <recent name="isa.ejercicio" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\50242\IdeaProjects\Registro\src\main\java\Imagen" />
+      <recent name="C:\Users\50242\IdeaProjects\Registro\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\50242\IdeaProjects\Registro\src\main\java\Imagen" />
+      <recent name="C:\Users\50242\IdeaProjects\Registro\src\main\resources" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="isa.ejercicio" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Vprincipal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Datos.Vprincipal" />
+      <module name="Registro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Datos.VentanaCurso" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Vprincipal" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8d5df349-3fe6-4957-88ac-0c9728c5f855" name="Changes" comment="" />
+      <created>1698200171531</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698200171531</updated>
+      <workItem from="1698200173252" duration="11934000" />
+      <workItem from="1698243217117" duration="11851000" />
+      <workItem from="1698473368672" duration="2050000" />
+      <workItem from="1698625960884" duration="16246000" />
+      <workItem from="1698717196879" duration="1414000" />
+      <workItem from="1698718864377" duration="11320000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

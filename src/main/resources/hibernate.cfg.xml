@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- URL de conexión a la base de datos PostgreSQL -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+
+        <!-- Clase del controlador del driver de PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- Nombre de usuario de la base de datos -->
+        <property name="hibernate.connection.username">postgres</property>
+
+        <!-- Contraseña de la base de datos -->
+        <property name="hibernate.connection.password">aifx87xwk</property>
+
+        <!-- Esta propiedad indica que Hibernate actualizará automáticamente el esquema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Mapeo de las clases del paquete org.example.DomainDTO -->
+        <mapping class="isa.ejercicio.CursosClass"/>
+        <mapping class="isa.ejercicio.EstudiantesClass"/>
+        <mapping class="isa.ejercicio.InscripcionesClass"/>
+    </session-factory>
+</hibernate-configuration>

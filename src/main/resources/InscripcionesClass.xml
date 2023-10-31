@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="isa.ejercicio.InscripcionesClass" table="inscripciones" schema="public" catalog="postgres">
+        <id name="idInscripcion" column="id_inscripcion"/>
+        <property name="idEstudiante" column="id_estudiante"/>
+        <property name="idCurso" column="id_curso"/>
+        <property name="fechaInscripcion" column="fecha_inscripcion"/>
+        <many-to-one name="estudiantesByIdEstudiante" class="isa.ejercicio.EstudiantesClass">
+            <column name="id_estudiante" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="cursosByIdCurso" class="isa.ejercicio.CursosClass">
+            <column name="id_curso" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
